@@ -1,7 +1,9 @@
 # Binaries for programs and plugins
+*.so
 *.exe
 *.dll
-*.so
+*.bin
+*.exec
 *.dylib
 
 # Test binary, build with `go test -c`
