@@ -96,8 +96,9 @@ func main() {
 	router := mux.NewRouter()
 	people = append(people, Person{ID: "1", FirstName: "Isaac", LastName: "Newton", Address: &Address{City: "London", Country: "England"}})
 	people = append(people, Person{ID: "2", FirstName: "Albert", LastName: "Einstien", Address: &Address{City: "Berlin", Country: "Germany"}})
+	people = append(people, Person{ID: "2", FirstName: "Thomas", LastName: "Edison", Address: &Address{City: "NYC", Country: "U.S.A"}})
 
-	router.HandleFunc("/people", GetPeopleEndPoint).Methods("GET")
+	router.HandleFunc("/", GetPeopleEndPoint).Methods("GET")
 	router.HandleFunc("/people/{id}", GetPersonEndPoint).Methods("GET")
 	router.HandleFunc("/people/{id}", CreatePersonEndPoint).Methods("POST")
 	router.HandleFunc("/people/{id}", DeletePersonEndPoint).Methods("DELETE")
