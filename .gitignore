@@ -5,6 +5,13 @@
 *.bin
 *.exec
 *.dylib
+.DS_Store
+*.swp
+app
+tmp
+vendor/
+tmp/
+report/
 
 # Test binary, build with `go test -c`
 *.test
