@@ -9,7 +9,9 @@
 *.swp
 app
 tmp
-vendor
+vendor/
+tmp/
+report/
 
 # Test binary, build with `go test -c`
 *.test
