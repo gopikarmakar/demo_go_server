@@ -22,7 +22,7 @@ BUILD_TEST_ARGS=--build-arg IMAGE_NAME=$(IMAGE_NAME) --build-arg BASE_TAG=$(BASE
 BUILD_ARGS=--build-arg IMAGE_NAME=$(IMAGE_NAME) --build-arg APP_NAME=$(APP_NAME) --build-arg BASE_TAG=$(BASE_TAG)
 
 # net port for webapp
-PORT=7860
+PORT=1234
 
 build-base:
 	@echo ":::building base image"

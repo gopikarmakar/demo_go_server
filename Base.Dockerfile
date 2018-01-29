@@ -20,8 +20,9 @@ ARG APP_NAME
 WORKDIR /go/src/${APP_NAME}
 ADD app ./app
 
+# Install dependencies
+RUN dep init -v
+#RUN dep ensure -vendor-only
+
 #copies the Gopkg.toml and Gopkg.lock to WORKDIR
 ADD Gopkg.toml Gopkg.lock ./
-
-# Install dependencies
-RUN dep ensure -vendor-only
