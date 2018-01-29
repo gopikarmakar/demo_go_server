@@ -25,4 +25,4 @@ RUN dep init -v
 #RUN dep ensure -vendor-only
 
 #copies the Gopkg.toml and Gopkg.lock to WORKDIR
-ADD Gopkg.toml Gopkg.lock ./
+#ADD Gopkg.toml Gopkg.lock ./
