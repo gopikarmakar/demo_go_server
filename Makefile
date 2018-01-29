@@ -10,7 +10,7 @@ BASE_TAG=$(shell git rev-parse --short HEAD)
 IMAGE_NAME=gopik/golangwebapp
 # app name for go packages
 
-APP_NAME=gopik_webapp
+APP_NAME=webapp
 # base golang image tag
 
 #GOLAN Docker Imnage Version
