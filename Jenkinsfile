@@ -16,12 +16,6 @@ pipeline {
             }
         }
         
-        stage('build image') {
-            steps {
-                sh 'make build'
-            }
-        }
-        
         stage('run tests') {
             steps {
                 echo 'Running Test...'
@@ -29,6 +23,13 @@ pipeline {
                 sh 'make test-unit'
                 sh 'ls'
                 junit 'report/report.xml'
+            }
+        }
+
+        stage('build image') {
+            steps {
+                echo 'Building Docker Image...'
+                sh 'make build'
             }
         }
     }
