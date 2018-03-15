@@ -7,22 +7,26 @@
 ARG GOLANG_TAG
 FROM golang:${GOLANG_TAG}
 
+RUN  mkdir -p /go/src \
+  && mkdir -p /go/bin \
+  && mkdir -p /go/pkg
+ENV GOPATH=/go
+ENV PATH=$GOPATH/bin:$PATH
+
 # Stuff needed for dep in alpine
 RUN apk --update add git openssh curl && \
   rm -rf /var/lib/apt/lists/* && \
   rm /var/cache/apk/*
 
-# install dep
+# Install dep
 RUN curl -fsSL -o /usr/local/bin/dep https://github.com/golang/dep/releases/download/v0.3.2/dep-linux-amd64 && chmod +x /usr/local/bin/dep
 
-# Copy the local package files to the container's workspace.
+# Now copy your app to the proper build path
 ARG APP_NAME
-WORKDIR /go/src/${APP_NAME}
+RUN mkdir -p $GOPATH/src/${APP_NAME} 
+WORKDIR $GOPATH/src/${APP_NAME} 
 ADD app ./app
+ADD Gopkg.toml Gopkg.lock ./
 
 # Install dependencies
-RUN dep init -v
-#RUN dep ensure -vendor-only
-
-#copies the Gopkg.toml and Gopkg.lock to WORKDIR
-#ADD Gopkg.toml Gopkg.lock ./
+RUN dep ensure -vendor-only

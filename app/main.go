@@ -110,5 +110,5 @@ func main() {
 	router.HandleFunc("/people/{id}", GetPersonEndPoint).Methods("GET")
 	router.HandleFunc("/people/{id}", CreatePersonEndPoint).Methods("POST")
 	router.HandleFunc("/people/{id}", DeletePersonEndPoint).Methods("DELETE")
-	log.Fatal(http.ListenAndServe(":1234", router))
+	log.Fatal(http.ListenAndServe(":80", router))
 }

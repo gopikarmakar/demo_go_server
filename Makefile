@@ -10,7 +10,7 @@ BASE_TAG=$(shell git rev-parse --short HEAD)
 IMAGE_NAME=gopik/golangwebapp
 # app name for go packages
 
-APP_NAME=gopik_webapp
+APP_NAME=MyWebApp
 # base golang image tag
 
 #GOLAN Docker Imnage Version
@@ -22,7 +22,7 @@ BUILD_TEST_ARGS=--build-arg IMAGE_NAME=$(IMAGE_NAME) --build-arg BASE_TAG=$(BASE
 BUILD_ARGS=--build-arg IMAGE_NAME=$(IMAGE_NAME) --build-arg APP_NAME=$(APP_NAME) --build-arg BASE_TAG=$(BASE_TAG)
 
 # net port for webapp
-PORT=1234
+PORT=8080
 
 build-base:
 	@echo ":::building base image"
