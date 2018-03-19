@@ -20,7 +20,7 @@ RUN apk --update add git openssh curl && \
 
 # Install dep
 RUN curl -fsSL -o /usr/local/bin/dep https://github.com/golang/dep/releases/download/v0.3.2/dep-linux-amd64 && chmod +x /usr/local/bin/dep
-
+RUN go get 
 # Now copy your app to the proper build path
 ARG APP_NAME
 RUN mkdir -p $GOPATH/src/${APP_NAME} 
